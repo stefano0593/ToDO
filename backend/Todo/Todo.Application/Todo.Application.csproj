@@ -11,7 +11,12 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="AccountManagement" />
+      <ProjectReference Include="..\Todo.DataAccess\Todo.DataAccess.csproj" />
+      <ProjectReference Include="..\Todo.Domain\Todo.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Abstractions\Services" />
     </ItemGroup>
 
 </Project>
