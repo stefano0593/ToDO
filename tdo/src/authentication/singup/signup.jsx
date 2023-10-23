@@ -1,6 +1,6 @@
 import { TextField } from '@mui/material';
 import { Button } from '@mui/material';
-import Logo from '../assets/logo.png';
+import Logo from '../../assets/logo.png';
 import './signup.css';
 import { useState } from 'react';
 export const SignUp = () => {
@@ -8,6 +8,7 @@ export const SignUp = () => {
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
     const getFirstName = (event) => {
         setFirstName(event.target.value);
     };
