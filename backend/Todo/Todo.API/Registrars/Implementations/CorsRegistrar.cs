@@ -10,6 +10,7 @@ public class CorsRegistrar : IWebApplicationBuilderRegistrar
         {
             options.AddPolicy(AppConfigurations.Constants.CorsPolicy,
                 corsPolicyBuilder => corsPolicyBuilder
+                .WithOrigins("localhost:3000")
                     .AllowAnyMethod()
                     .AllowCredentials()
                     .SetIsOriginAllowed((host) => true)

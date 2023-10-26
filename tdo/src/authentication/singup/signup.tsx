@@ -3,6 +3,7 @@ import { Button } from '@mui/material';
 import './signup.css';
 import { useState } from 'react';
 import React from 'react';
+import { SignInRequest } from '../data/types';
 
 const Logo = require('../../assets/logo.png');
 
@@ -25,7 +26,23 @@ export const SignUp = () => {
         setPassword(event.target.value);
     };
     const Submit = () => {
-        console.log(firstName, lastName, email, password);
+        const person: SignInRequest = {
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            password: password,
+        };
+        const headers = {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'POST,PATCH,OPTIONS',
+        };
+        const urlApi = 'http://localhost:5113/api/Accounts';
+        fetch(urlApi, {
+            method: 'POST',
+            body: JSON.stringify(person),
+            headers: headers,
+        }).then((response) => console.log(response));
     };
 
     return (
