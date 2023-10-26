@@ -1,0 +1,16 @@
+.layout-container {
+    background-color: #f6f6fb;
+    display: flex;
+    margin: 0 200px;
+    height: 100%;
+}
+.navbar {
+    background-color: rebeccapurple;
+    width: 10%;
+}
+
+.page {
+    background-color: aqua;
+    height: 100%;
+    width: 90%;
+}
