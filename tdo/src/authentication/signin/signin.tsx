@@ -1,49 +1,33 @@
 import { TextField } from '@mui/material';
 import { Button } from '@mui/material';
-import Logo from '../../assets/logo.png';
-import './signup.css';
+import './signin.css';
 import { useState } from 'react';
-export const SignUp = () => {
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
+import React from 'react';
+
+const Logo = require('../../assets/logo.png');
+
+export const SigIn = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const getFirstName = (event) => {
-        setFirstName(event.target.value);
-    };
-    const getLastName = (event) => {
-        setLastName(event.target.value);
-    };
-    const getEmail = (event) => {
+    const getEmail = (event: any) => {
         setEmail(event.target.value);
     };
-    const getPassword = (event) => {
+    const getPassword = (event: any) => {
         setPassword(event.target.value);
     };
+
     const Submit = () => {
-        console.log(firstName, lastName, email, password);
+        console.log(email, password);
     };
 
     return (
-        <div className="signup-container">
+        <div className="sigin-container">
             <div className="logo-title">
                 <img alt="Logo" className="logo" src={Logo}></img>
                 <h1 className="title-text">Todo</h1>
             </div>
             <div className="form">
-                <TextField
-                    type="text"
-                    label="First Name"
-                    variant="outlined"
-                    onChange={getFirstName}
-                />
-                <TextField
-                    type="text"
-                    label="Last Name"
-                    variant="outlined"
-                    onChange={getLastName}
-                />
                 <TextField
                     type="email"
                     label="Email"
@@ -57,7 +41,7 @@ export const SignUp = () => {
                     onChange={getPassword}
                 />
                 <Button variant="contained" onClick={Submit}>
-                    Sign Up
+                    Sign In
                 </Button>
             </div>
         </div>
