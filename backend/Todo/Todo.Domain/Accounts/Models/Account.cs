@@ -18,7 +18,6 @@ public class Account
     public string FirstName { get; private set; }
     public string LastName { get; private set; }
     public string? PictureUrl { get; private set; }
-    public string? BlaBla { get; private set; }
 
     public static async Task<Account> CreateAccount(string firstName, string lastName, string? pictureUrl, Guid identityId,
         CancellationToken cancellationToken)

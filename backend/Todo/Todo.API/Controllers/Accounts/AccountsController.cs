@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Todo.API.API.Controllers;
+using Todo.API.Controllers.Accounts.Contracts;
 using Todo.API.Controllers.Accounts.Contracts.Requests;
 using Todo.API.Controllers.Accounts.Contracts.Responses;
 using Todo.Application.Accounts;
@@ -21,6 +22,20 @@ public class AccountsController : ApiController
         var commandResult = await Mediator.Send(userSignupCommand);
         return commandResult.IsSuccess && commandResult.Payload is not null? 
             Ok(new AccountServerResponse(commandResult.Payload)) : 
+            HandleApiErrorResponse(commandResult.FailureReason);
+    }
+    
+    [HttpPost]
+    [Route("signin")]
+    public async Task<IActionResult> SignInAsUser([FromBody] LoginRequest request)
+    {
+        var userSignupCommand = new SigninAsUser(
+            Email: request.Email,
+            Password: request.Password);
+
+        var commandResult = await Mediator.Send(userSignupCommand);
+        return commandResult.IsSuccess && commandResult.Payload is not null? 
+            Ok(commandResult.Payload) : 
             HandleApiErrorResponse(commandResult.FailureReason);
     }
 }
