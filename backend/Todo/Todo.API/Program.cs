@@ -1,3 +1,4 @@
+using Todo.API.AppConfigurations;
 using Todo.API.Registrars;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,7 +12,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseCors(Constants.CorsPolicy);
 app.UseAuthorization();
 
 app.MapControllers();
