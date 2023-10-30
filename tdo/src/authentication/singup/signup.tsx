@@ -34,8 +34,6 @@ export const SignUp = () => {
         };
         const headers = {
             'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'POST,PATCH,OPTIONS',
         };
         const urlApi = 'http://localhost:5113/api/Accounts';
         fetch(urlApi, {
